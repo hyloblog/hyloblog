@@ -5,7 +5,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 const (

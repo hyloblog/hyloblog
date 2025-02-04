@@ -7,9 +7,9 @@ import (
 
 	"github.com/prometheus/client_golang/prometheus"
 	"github.com/prometheus/client_golang/prometheus/promhttp"
-	"github.com/hylodoc/hylodoc.com/internal/assert"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/session"
+	"github.com/hyloblog/hyloblog/internal/assert"
+	"github.com/hyloblog/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/session"
 )
 
 var (
@@ -17,7 +17,7 @@ var (
 	httpRequest = prometheus.NewCounterVec(
 		prometheus.CounterOpts{
 			Name: "http_request",
-			Help: "hylodoc service request",
+			Help: "hyloblog service request",
 		},
 		[]string{"method", "path", "status", "error_type"},
 	)
@@ -25,7 +25,7 @@ var (
 	httpRequestDuration = prometheus.NewHistogramVec(
 		prometheus.HistogramOpts{
 			Name:    "http_request_duration_seconds",
-			Help:    "hylodoc service request duration",
+			Help:    "hyloblog service request duration",
 			Buckets: prometheus.DefBuckets,
 		},
 		[]string{"method", "path", "status", "error_type"},
@@ -34,7 +34,7 @@ var (
 	httpRequestSuccess = prometheus.NewCounterVec(
 		prometheus.CounterOpts{
 			Name: "http_request_success",
-			Help: "hylodoc service request success",
+			Help: "hyloblog service request success",
 		},
 		[]string{"method", "path", "status", "error_type"},
 	)
@@ -42,7 +42,7 @@ var (
 	httpRequestErrors = prometheus.NewCounterVec(
 		prometheus.CounterOpts{
 			Name: "http_request_error",
-			Help: "hylodoc service request error",
+			Help: "hyloblog service request error",
 		},
 		[]string{"method", "path", "status", "error_type"},
 	)

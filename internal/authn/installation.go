@@ -9,8 +9,8 @@ import (
 	"time"
 
 	"github.com/golang-jwt/jwt"
-	"github.com/hylodoc/hylodoc.com/internal/httpclient"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hyloblog/hyloblog/internal/httpclient"
+	"github.com/hyloblog/hyloblog/internal/util"
 )
 
 /* Installation AccessToken */

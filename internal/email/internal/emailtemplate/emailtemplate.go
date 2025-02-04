@@ -5,7 +5,7 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 type Template interface {

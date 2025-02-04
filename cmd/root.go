@@ -9,19 +9,19 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
-	server "github.com/hylodoc/hylodoc.com/internal/app"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/dns"
-	"github.com/hylodoc/hylodoc.com/internal/email/emailqueue"
-	"github.com/hylodoc/hylodoc.com/internal/httpclient"
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	server "github.com/hyloblog/hyloblog/internal/app"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/dns"
+	"github.com/hyloblog/hyloblog/internal/email/emailqueue"
+	"github.com/hyloblog/hyloblog/internal/httpclient"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 const clientTimeout = 30 * time.Second
 
 var rootCmd = &cobra.Command{
-	Use:   "hylodoc.com",
-	Short: "Run hylodoc.com",
+	Use:   "hyloblog",
+	Short: "Run hyloblog",
 	RunE: func(cmd *cobra.Command, args []string) error {
 		rand.Seed(time.Now().UnixNano())
 		db, err := config.Config.Db.Connect()

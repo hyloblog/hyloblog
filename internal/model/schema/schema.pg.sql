@@ -1,27 +1,27 @@
-DROP SCHEMA IF EXISTS hylodoc;
+DROP SCHEMA IF EXISTS hyloblog;
 
-CREATE SCHEMA hylodoc;
+CREATE SCHEMA hyloblog;
 
 -- UUID generation
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
 -- Grant usage on the schema
-GRANT USAGE ON SCHEMA hylodoc TO hylodoc_user;
+GRANT USAGE ON SCHEMA hyloblog TO hyloblog_user;
 
 -- Grant all privileges on existing tables in the schema
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA hylodoc TO hylodoc_user;
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA hyloblog TO hyloblog_user;
 -- Grant all privileges on existing sequences in the schema
-GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA hylodoc TO hylodoc_user;
+GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA hyloblog TO hyloblog_user;
 
-GRANT ALL ON SCHEMA hylodoc TO hylodoc_user;
+GRANT ALL ON SCHEMA hyloblog TO hyloblog_user;
 
 -- Set default privileges for future tables created in the schema
-ALTER DEFAULT PRIVILEGES IN SCHEMA hylodoc
-	GRANT ALL PRIVILEGES ON TABLES to hylodoc_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA hyloblog
+	GRANT ALL PRIVILEGES ON TABLES to hyloblog_user;
 
 -- Set default privileges for future sequences created in the schema
-ALTER DEFAULT PRIVILEGES IN SCHEMA hylodoc
-	GRANT ALL PRIVILEGES ON SEQUENCES to hylodoc_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA hyloblog
+	GRANT ALL PRIVILEGES ON SEQUENCES to hyloblog_user;
 
 CREATE TABLE boots (
 	id		SERIAL		PRIMARY KEY,

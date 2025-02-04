@@ -7,14 +7,14 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/request"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/authz"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/httpclient"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/session"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hyloblog/hyloblog/internal/app/handler/request"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/authz"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/httpclient"
+	"github.com/hyloblog/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/session"
+	"github.com/hyloblog/hyloblog/internal/util"
 )
 
 type BlogService struct {
@@ -79,8 +79,8 @@ func (b *BlogService) Config(
 				CanCustomDomain: canConfigure,
 				UpgradeURL: fmt.Sprintf(
 					"%s://%s/pricing",
-					config.Config.Hylodoc.Protocol,
-					config.Config.Hylodoc.RootDomain,
+					config.Config.Hyloblog.Protocol,
+					config.Config.Hyloblog.RootDomain,
 				),
 			},
 		},
@@ -529,8 +529,8 @@ func (b *BlogService) SyncRepository(
 	return response.NewRedirect(
 		fmt.Sprintf(
 			"%s://%s/user/blogs/%s/config",
-			config.Config.Hylodoc.Protocol,
-			config.Config.Hylodoc.RootDomain,
+			config.Config.Hyloblog.Protocol,
+			config.Config.Hyloblog.RootDomain,
 			blog.ID,
 		),
 		http.StatusTemporaryRedirect,
@@ -567,8 +567,8 @@ func (b *BlogService) Delete(
 		return response.NewRedirect(
 			fmt.Sprintf(
 				"%s://%s/user/blogs/%s/config",
-				config.Config.Hylodoc.Protocol,
-				config.Config.Hylodoc.RootDomain,
+				config.Config.Hyloblog.Protocol,
+				config.Config.Hyloblog.RootDomain,
 				blogID,
 			),
 			http.StatusTemporaryRedirect,
@@ -587,8 +587,8 @@ func (b *BlogService) Delete(
 	return response.NewRedirect(
 		fmt.Sprintf(
 			"%s://%s/user/",
-			config.Config.Hylodoc.Protocol,
-			config.Config.Hylodoc.RootDomain,
+			config.Config.Hyloblog.Protocol,
+			config.Config.Hyloblog.RootDomain,
 		),
 		http.StatusTemporaryRedirect,
 	), nil

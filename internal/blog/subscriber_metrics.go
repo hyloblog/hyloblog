@@ -8,11 +8,11 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/request"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/session"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hyloblog/hyloblog/internal/app/handler/request"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/session"
+	"github.com/hyloblog/hyloblog/internal/util"
 )
 
 type SubscriberData struct {

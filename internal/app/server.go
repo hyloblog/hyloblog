@@ -7,21 +7,21 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/request"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/authn"
-	"github.com/hylodoc/hylodoc.com/internal/billing"
-	"github.com/hylodoc/hylodoc.com/internal/blog"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/httpclient"
-	"github.com/hylodoc/hylodoc.com/internal/installation"
-	"github.com/hylodoc/hylodoc.com/internal/metrics"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/routing"
-	"github.com/hylodoc/hylodoc.com/internal/session"
-	"github.com/hylodoc/hylodoc.com/internal/user"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hyloblog/hyloblog/internal/app/handler"
+	"github.com/hyloblog/hyloblog/internal/app/handler/request"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/authn"
+	"github.com/hyloblog/hyloblog/internal/billing"
+	"github.com/hyloblog/hyloblog/internal/blog"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/httpclient"
+	"github.com/hyloblog/hyloblog/internal/installation"
+	"github.com/hyloblog/hyloblog/internal/metrics"
+	"github.com/hyloblog/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/routing"
+	"github.com/hyloblog/hyloblog/internal/session"
+	"github.com/hyloblog/hyloblog/internal/user"
+	"github.com/hyloblog/hyloblog/internal/util"
 	"golang.org/x/crypto/acme/autocert"
 )
 
@@ -181,7 +181,7 @@ func Serve(httpClient *httpclient.Client, store *model.Store) error {
 	)
 
 	m := &autocert.Manager{
-		Cache:  autocert.DirCache(config.Config.Hylodoc.CertsPath),
+		Cache:  autocert.DirCache(config.Config.Hyloblog.CertsPath),
 		Prompt: autocert.AcceptTOS,
 		Email:  "tls@hylo.lbnz.dev",
 		HostPolicy: func(ctx context.Context, host string) error {
@@ -193,7 +193,7 @@ func Serve(httpClient *httpclient.Client, store *model.Store) error {
 		TLSConfig: m.TLSConfig(),
 		Handler:   r,
 	}
-	switch config.Config.Hylodoc.Protocol {
+	switch config.Config.Hyloblog.Protocol {
 	case "https":
 		log.Printf("listening at https://localhost:%d...\n", httpsPort)
 		return s.ListenAndServeTLS("", "")
@@ -225,7 +225,7 @@ func index(r request.Request) (response.Response, error) {
 				Title    string
 				UserInfo *session.UserInfo
 			}{
-				Title:    "Hylodoc - blogging for devs",
+				Title:    "Hyloblog - blogging for devs",
 				UserInfo: session.ConvertSessionToUserInfo(sesh),
 			},
 		},

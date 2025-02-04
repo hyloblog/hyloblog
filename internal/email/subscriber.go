@@ -3,9 +3,9 @@ package email
 import (
 	"fmt"
 
-	"github.com/hylodoc/hylodoc.com/internal/email/internal/emailtemplate"
-	"github.com/hylodoc/hylodoc.com/internal/email/postbody"
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hyloblog/hyloblog/internal/email/internal/emailtemplate"
+	"github.com/hyloblog/hyloblog/internal/email/postbody"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 func (s *sender) SendNewSubscriberEmail(sitename, unsublink string) error {

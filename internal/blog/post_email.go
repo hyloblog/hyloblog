@@ -6,14 +6,14 @@ import (
 	"net/http"
 
 	"github.com/google/uuid"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/request"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/authz"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/email"
-	"github.com/hylodoc/hylodoc.com/internal/email/emailaddr"
-	"github.com/hylodoc/hylodoc.com/internal/email/postbody"
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hyloblog/hyloblog/internal/app/handler/request"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/authz"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/email"
+	"github.com/hyloblog/hyloblog/internal/email/emailaddr"
+	"github.com/hyloblog/hyloblog/internal/email/postbody"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 func (b *BlogService) SendPostEmail(
@@ -63,7 +63,7 @@ func (b *BlogService) SendPostEmail(
 		fmt.Sprintf(
 			"%s@%s",
 			blog.Subdomain,
-			config.Config.Hylodoc.EmailDomain,
+			config.Config.Hyloblog.EmailDomain,
 		),
 	)
 	for _, sub := range subscribers {
@@ -92,16 +92,16 @@ func (b *BlogService) SendPostEmail(
 				/* urls in post table begin with `/' so we omit
 				 * it beneath */
 				"%s://%s.%s%s?subscriber=%s",
-				config.Config.Hylodoc.Protocol,
+				config.Config.Hyloblog.Protocol,
 				blog.Subdomain,
-				config.Config.Hylodoc.RootDomain,
+				config.Config.Hyloblog.RootDomain,
 				post.Url,
 				token,
 			),
 			fmt.Sprintf(
 				"%s://%s/blogs/unsubscribe?token=%s",
-				config.Config.Hylodoc.Protocol,
-				config.Config.Hylodoc.RootDomain,
+				config.Config.Hyloblog.Protocol,
+				config.Config.Hyloblog.RootDomain,
 				sub.UnsubscribeToken,
 			),
 			postbody.NewPostBody(
@@ -126,8 +126,8 @@ func (b *BlogService) SendPostEmail(
 	return response.NewRedirect(
 		fmt.Sprintf(
 			"%s://%s/user/blogs/%s/metrics",
-			config.Config.Hylodoc.Protocol,
-			config.Config.Hylodoc.RootDomain,
+			config.Config.Hyloblog.Protocol,
+			config.Config.Hyloblog.RootDomain,
 			blog.ID,
 		),
 		http.StatusTemporaryRedirect,

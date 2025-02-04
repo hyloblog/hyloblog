@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"net/http"
 
-	"github.com/hylodoc/hylodoc.com/internal/assert"
-	"github.com/hylodoc/hylodoc.com/internal/session"
+	"github.com/hyloblog/hyloblog/internal/assert"
+	"github.com/hyloblog/hyloblog/internal/session"
 )
 
 type jsonresponse struct {

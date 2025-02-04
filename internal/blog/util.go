@@ -8,8 +8,8 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/hylodoc/hylodoc.com/internal/httpclient"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hyloblog/hyloblog/internal/httpclient"
+	"github.com/hyloblog/hyloblog/internal/util"
 )
 
 const (

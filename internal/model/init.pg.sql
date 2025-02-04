@@ -1,13 +1,13 @@
 -- intialise table
-DROP DATABASE IF EXISTS hylodoc_db;
-CREATE DATABASE hylodoc_db;
+DROP DATABASE IF EXISTS hyloblog_db;
+CREATE DATABASE hyloblog_db;
 -- connect to db
-\c hylodoc_db
+\c hyloblog_db
 
-DROP USER IF EXISTS hylodoc_user;
-CREATE USER hylodoc_user with encrypted password 'secret';
+DROP USER IF EXISTS hyloblog_user;
+CREATE USER hyloblog_user with encrypted password 'secret';
 
-GRANT ALL PRIVILEGES ON DATABASE hylodoc_db TO hylodoc_user;
+GRANT ALL PRIVILEGES ON DATABASE hyloblog_db TO hyloblog_user;
 
 SET bytea_output = 'hex';
 

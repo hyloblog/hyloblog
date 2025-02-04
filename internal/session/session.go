@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/google/uuid"
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 const (

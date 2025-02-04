@@ -11,11 +11,11 @@ import (
 	"github.com/stripe/stripe-go/v81/product"
 	"github.com/stripe/stripe-go/v81/subscription"
 	"github.com/stripe/stripe-go/v81/webhook"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/request"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/session"
+	"github.com/hyloblog/hyloblog/internal/app/handler/request"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/session"
 )
 
 func (b *BillingService) StripeWebhook(

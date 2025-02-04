@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/util"
 )
 
 type tmpl struct {
@@ -24,10 +24,10 @@ func (t *tmpl) Respond(w http.ResponseWriter, _ *http.Request) error {
 		&tmp, t.names, t.info,
 		fmt.Sprintf(
 			"%s://%s",
-			config.Config.Hylodoc.Protocol,
-			config.Config.Hylodoc.RootDomain,
+			config.Config.Hyloblog.Protocol,
+			config.Config.Hyloblog.RootDomain,
 		),
-		config.Config.Hylodoc.CDN,
+		config.Config.Hyloblog.CDN,
 	); err != nil {
 		return err
 	}

@@ -10,15 +10,15 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/request"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/authn"
-	"github.com/hylodoc/hylodoc.com/internal/blog"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/httpclient"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/session"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hyloblog/hyloblog/internal/app/handler/request"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/authn"
+	"github.com/hyloblog/hyloblog/internal/blog"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/httpclient"
+	"github.com/hyloblog/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/session"
+	"github.com/hyloblog/hyloblog/internal/util"
 )
 
 const (
@@ -245,7 +245,7 @@ func createInstallationTx(arg *installationTxParams, s *model.Store) error {
 					FullName:       repositoryTxParams.FullName,
 					Url:            fmt.Sprintf("https://github.com/%s", repositoryTxParams.FullName), /* ghUrl not always in events */
 					GitdirPath: filepath.Join(
-						config.Config.Hylodoc.GitdirsPath,
+						config.Config.Hyloblog.GitdirsPath,
 						repositoryTxParams.FullName,
 					),
 				},
@@ -424,7 +424,7 @@ func handleInstallationRepositoriesAdded(
 			FullName:       repo.FullName,
 			Url:            fmt.Sprintf("https://github.com/%s", repo.FullName),
 			GitdirPath: filepath.Join(
-				config.Config.Hylodoc.GitdirsPath,
+				config.Config.Hyloblog.GitdirsPath,
 				repo.FullName,
 			),
 		})

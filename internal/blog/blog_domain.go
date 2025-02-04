@@ -10,12 +10,12 @@ import (
 	"strings"
 
 	"github.com/lib/pq"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/request"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/authz"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/dns"
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hyloblog/hyloblog/internal/app/handler/request"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/authz"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/dns"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 type SubdomainRequest struct {
@@ -199,8 +199,8 @@ func (b *BlogService) DomainSubmit(
 	return response.NewRedirect(
 		fmt.Sprintf(
 			"%s://%s/user/blogs/%s/config",
-			config.Config.Hylodoc.Protocol,
-			config.Config.Hylodoc.RootDomain,
+			config.Config.Hyloblog.Protocol,
+			config.Config.Hyloblog.RootDomain,
 			blogID,
 		),
 		http.StatusTemporaryRedirect,

@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/assert"
-	"github.com/hylodoc/hylodoc.com/internal/authz"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/session"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/assert"
+	"github.com/hyloblog/hyloblog/internal/authz"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/session"
+	"github.com/hyloblog/hyloblog/internal/util"
 )
 
 func HandleError(w http.ResponseWriter, r *http.Request, err error) {
@@ -40,10 +40,10 @@ func internalServerError(w http.ResponseWriter, r *http.Request) {
 				DiscordURL   string
 				OpenIssueURL string
 			}{
-				Title:        "Hylodoc – Internal server error",
+				Title:        "Hyloblog – Internal server error",
 				UserInfo:     session.ConvertSessionToUserInfoError(sesh),
-				DiscordURL:   config.Config.Hylodoc.DiscordURL,
-				OpenIssueURL: config.Config.Hylodoc.OpenIssueURL,
+				DiscordURL:   config.Config.Hyloblog.DiscordURL,
+				OpenIssueURL: config.Config.Hyloblog.OpenIssueURL,
 			},
 		},
 	).Respond(w, r); err != nil {
@@ -65,7 +65,7 @@ func unauthorised(w http.ResponseWriter, r *http.Request) {
 				Title    string
 				UserInfo *session.UserInfo
 			}{
-				Title:    "Hylodoc – Unauthorised",
+				Title:    "Hyloblog – Unauthorised",
 				UserInfo: session.ConvertSessionToUserInfoError(sesh),
 			},
 		},
@@ -89,7 +89,7 @@ func NotFound(w http.ResponseWriter, r *http.Request) {
 				Title    string
 				UserInfo *session.UserInfo
 			}{
-				Title:    "Hylodoc – Page not found",
+				Title:    "Hyloblog – Page not found",
 				UserInfo: session.ConvertSessionToUserInfoError(sesh),
 			},
 		},
@@ -113,18 +113,18 @@ func NotFoundSubdomain(w http.ResponseWriter, r *http.Request) {
 			Data: struct {
 				Title              string
 				UserInfo           *session.UserInfo
-				Hylodoc          string
+				Hyloblog          string
 				RequestedSubdomain string
 				StartURL           string
 			}{
-				Title:              "Hylodoc – Site not found",
+				Title:              "Hyloblog – Site not found",
 				UserInfo:           session.ConvertSessionToUserInfoError(sesh),
-				Hylodoc:          config.Config.Hylodoc.Hylodoc,
+				Hyloblog:          config.Config.Hyloblog.Hyloblog,
 				RequestedSubdomain: r.Host,
 				StartURL: fmt.Sprintf(
 					"%s://%s",
-					config.Config.Hylodoc.Protocol,
-					config.Config.Hylodoc.RootDomain,
+					config.Config.Hyloblog.Protocol,
+					config.Config.Hyloblog.RootDomain,
 				),
 			},
 		},
@@ -147,17 +147,17 @@ func NotFoundDomain(w http.ResponseWriter, r *http.Request) {
 			Data: struct {
 				Title           string
 				UserInfo        *session.UserInfo
-				Hylodoc       string
+				Hyloblog       string
 				RequestedDomain string
 				DiscordURL      string
 				DomainGuideURL  string
 			}{
-				Title:           "Hylodoc – Site not found",
+				Title:           "Hyloblog – Site not found",
 				UserInfo:        session.ConvertSessionToUserInfoError(sesh),
-				Hylodoc:       config.Config.Hylodoc.Hylodoc,
+				Hyloblog:       config.Config.Hyloblog.Hyloblog,
 				RequestedDomain: r.Host,
-				DomainGuideURL:  config.Config.Hylodoc.CustomDomainGuideURL,
-				DiscordURL:      config.Config.Hylodoc.DiscordURL,
+				DomainGuideURL:  config.Config.Hyloblog.CustomDomainGuideURL,
+				DiscordURL:      config.Config.Hyloblog.DiscordURL,
 			},
 		},
 	).Respond(w, r); err != nil {

@@ -1,12 +1,12 @@
-.PHONY: $(HYLODOC) $(REPOSITORIES) $(DB) $(BIN) 
+.PHONY: $(HYLOBLOG) $(REPOSITORIES) $(DB) $(BIN) 
 
 DOCKER = $(SUDO) docker
 GO = go
 BIN = ${CURDIR}/bin
 SOURCES := $(shell find $(CURDIR) -name '*.go')
-HYLODOC = $(BIN)/hylodoc
+HYLOBLOG = $(BIN)/hyloblog
 
-$(HYLODOC): $(BIN) $(SOURCES) db get build.sh
+$(HYLOBLOG): $(BIN) $(SOURCES) db get build.sh
 	@printf 'BUILD\t$@\n'
 	@./build.sh $@ $(BUILDARGS)
 
@@ -27,7 +27,7 @@ db: $(DBDIR)/sqlc.yaml $(dbfiles)
 	@printf 'SQLC\t$<\n'
 	@sqlc generate -f $<
 
-up: $(HYLODOC) test
+up: $(HYLOBLOG) test
 	@echo 'launching docker containers...'
 	$(DOCKER) compose up --build
 

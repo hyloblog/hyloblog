@@ -4,7 +4,7 @@ import (
 	"context"
 	"fmt"
 
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 type Email interface {

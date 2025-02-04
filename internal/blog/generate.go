@@ -8,11 +8,11 @@ import (
 	"path/filepath"
 
 	"github.com/google/uuid"
-	"github.com/hylodoc/hylodoc.com/internal/assert"
-	"github.com/hylodoc/hylodoc.com/internal/authz"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc/pkg/ssg"
+	"github.com/hyloblog/hyloblog-ssg/pkg/ssg"
+	"github.com/hyloblog/hyloblog/internal/assert"
+	"github.com/hyloblog/hyloblog/internal/authz"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 func GetFreshGeneration(blogid string, s *model.Store) (int32, error) {
@@ -100,18 +100,18 @@ func ssgGenerateWithAuthZRestrictions(
 	}
 	assert.Assert(b.LiveHash.Valid)
 	src := filepath.Join(
-		config.Config.Hylodoc.CheckoutsPath,
+		config.Config.Hyloblog.CheckoutsPath,
 		b.LiveHash.String,
 	)
 	dst := filepath.Join(
-		config.Config.Hylodoc.WebsitesPath,
+		config.Config.Hyloblog.WebsitesPath,
 		b.Subdomain.String(),
 		uuid.New().String(),
 	)
 	link := fmt.Sprintf(
 		"%s://%s",
-		config.Config.Hylodoc.Protocol,
-		config.Config.Hylodoc.RootDomain,
+		config.Config.Hyloblog.Protocol,
+		config.Config.Hyloblog.RootDomain,
 	)
 	if !canHaveSubs {
 		return ssg.GenerateSiteWithBindings(
@@ -121,7 +121,7 @@ func ssgGenerateWithAuthZRestrictions(
 			"algol_nu",
 			"",
 			fmt.Sprintf(
-				"<div style=\"text-align: center; padding: 20px;\">Powered by <a href=\"%s\" target=\"_blank\">Hylodoc</a></div>",
+				"<div style=\"text-align: center; padding: 20px;\">Powered by <a href=\"%s\" target=\"_blank\">Hyloblog</a></div>",
 				link,
 			),
 			map[string]ssg.CustomPage{
@@ -142,15 +142,15 @@ func ssgGenerateWithAuthZRestrictions(
 		"algol_nu",
 		"",
 		fmt.Sprintf(
-			"<p>Subscribe via <a href=\"/subscribe\">email</a>.</p><div style=\"text-align: center; padding: 20px;\">Powered by <a href=\"%s\" target=\"_blank\">Hylodoc</a></div>",
+			"<p>Subscribe via <a href=\"/subscribe\">email</a>.</p><div style=\"text-align: center; padding: 20px;\">Powered by <a href=\"%s\" target=\"_blank\">Hyloblog</a></div>",
 			link,
 		),
 		map[string]ssg.CustomPage{
 			"/subscribe": ssg.NewSubscriberPage(
 				fmt.Sprintf(
 					"%s://%s/blogs/%s/subscribe",
-					config.Config.Hylodoc.Protocol,
-					config.Config.Hylodoc.RootDomain,
+					config.Config.Hyloblog.Protocol,
+					config.Config.Hyloblog.RootDomain,
 					b.ID,
 				),
 			),

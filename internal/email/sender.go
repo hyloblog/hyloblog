@@ -1,10 +1,10 @@
 package email
 
 import (
-	"github.com/hylodoc/hylodoc.com/internal/email/emailaddr"
-	"github.com/hylodoc/hylodoc.com/internal/email/emailqueue"
-	"github.com/hylodoc/hylodoc.com/internal/email/postbody"
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hyloblog/hyloblog/internal/email/emailaddr"
+	"github.com/hyloblog/hyloblog/internal/email/emailqueue"
+	"github.com/hyloblog/hyloblog/internal/email/postbody"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 type Sender interface {

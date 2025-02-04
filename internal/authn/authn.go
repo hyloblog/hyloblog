@@ -12,14 +12,14 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/request"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/billing"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/httpclient"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/session"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hyloblog/hyloblog/internal/app/handler/request"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/billing"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/httpclient"
+	"github.com/hyloblog/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/session"
+	"github.com/hyloblog/hyloblog/internal/util"
 )
 
 const (
@@ -267,7 +267,7 @@ func (a *AuthNService) Register(r request.Request) (response.Response, error) {
 				Title    string
 				UserInfo *session.UserInfo
 			}{
-				Title:    "Hylodoc - blogging for devs",
+				Title:    "Hyloblog - blogging for devs",
 				UserInfo: session.ConvertSessionToUserInfo(r.Session()),
 			},
 		},
@@ -287,7 +287,7 @@ func (a *AuthNService) Login(r request.Request) (response.Response, error) {
 				Title    string
 				UserInfo *session.UserInfo
 			}{
-				Title: "Hylodoc - blogging for devs",
+				Title: "Hyloblog - blogging for devs",
 				UserInfo: session.ConvertSessionToUserInfo(
 					r.Session(),
 				),
