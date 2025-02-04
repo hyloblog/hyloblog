@@ -19,7 +19,7 @@ func init() {
 var Config Configuration
 
 type Configuration struct {
-	Hylodoc          HylodocParams    `mapstructure:"hylodoc"`
+	Hyloblog          HyloblogParams    `mapstructure:"hylodoc"`
 	SSG       SSGParams `mapstructure:"ssg"`
 	Github             GithubParams       `mapstructure:"github"`
 	Db                 DbParams           `mapstructure:"postgres"`
@@ -29,8 +29,8 @@ type Configuration struct {
 	ReservedSubdomains []string           `mapstructure:"reserved_subdomains"`
 }
 
-type HylodocParams struct {
-	Hylodoc            string `mapstructure:"hylodoc"`
+type HyloblogParams struct {
+	Hyloblog            string `mapstructure:"hylodoc"`
 	Protocol             string `mapstructure:"protocol"`
 	RootDomain           string `mapstructure:"root_domain"`
 	CheckoutsPath        string `mapstructure:"checkouts_path"`

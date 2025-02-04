@@ -1,4 +1,4 @@
-module github.com/hylodoc/hylodoc.com
+module github.com/hylodoc/hyloblog
 
 go 1.23
 

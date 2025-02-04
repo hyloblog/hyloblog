@@ -9,14 +9,14 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/request"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/authz"
-	"github.com/hylodoc/hylodoc.com/internal/blog/emaildata"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/session"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hylodoc/hyloblog/internal/app/handler/request"
+	"github.com/hylodoc/hyloblog/internal/app/handler/response"
+	"github.com/hylodoc/hyloblog/internal/authz"
+	"github.com/hylodoc/hyloblog/internal/blog/emaildata"
+	"github.com/hylodoc/hyloblog/internal/config"
+	"github.com/hylodoc/hyloblog/internal/model"
+	"github.com/hylodoc/hyloblog/internal/session"
+	"github.com/hylodoc/hyloblog/internal/util"
 )
 
 type SiteData struct {
@@ -76,8 +76,8 @@ func (b *BlogService) SiteMetrics(
 				CanViewAnalyticsAndSendEmails: canView,
 				UpgradeURL: fmt.Sprintf(
 					"%s://%s/pricing",
-					config.Config.Hylodoc.Protocol,
-					config.Config.Hylodoc.RootDomain,
+					config.Config.Hyloblog.Protocol,
+					config.Config.Hyloblog.RootDomain,
 				),
 			},
 		},
@@ -107,9 +107,9 @@ func (b *BlogService) getSiteMetrics(blogid string) ([]postdata, error) {
 		u, err := url.JoinPath(
 			fmt.Sprintf(
 				"%s://%s.%s",
-				config.Config.Hylodoc.Protocol,
+				config.Config.Hyloblog.Protocol,
 				blog.Subdomain,
-				config.Config.Hylodoc.RootDomain,
+				config.Config.Hyloblog.RootDomain,
 			),
 			p.Url,
 		)
@@ -155,8 +155,8 @@ func getemaildata(post *model.Post, clicks int) emaildata.EmailData {
 		template.URL(
 			fmt.Sprintf(
 				"%s://%s/user/blogs/%s/email?token=%s",
-				config.Config.Hylodoc.Protocol,
-				config.Config.Hylodoc.RootDomain,
+				config.Config.Hyloblog.Protocol,
+				config.Config.Hyloblog.RootDomain,
 				post.Blog,
 				post.EmailToken,
 			),

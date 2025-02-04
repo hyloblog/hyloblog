@@ -6,10 +6,10 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler"
-	"github.com/hylodoc/hylodoc.com/internal/assert"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/session"
+	"github.com/hylodoc/hyloblog/internal/app/handler"
+	"github.com/hylodoc/hyloblog/internal/assert"
+	"github.com/hylodoc/hyloblog/internal/model"
+	"github.com/hylodoc/hyloblog/internal/session"
 )
 
 func (b *BlogService) Middleware(next http.Handler) http.Handler {

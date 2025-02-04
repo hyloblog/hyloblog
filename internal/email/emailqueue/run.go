@@ -6,12 +6,12 @@ import (
 	"log"
 	"time"
 
-	"github.com/hylodoc/hylodoc.com/internal/assert"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/email/emailqueue/internal/postmark"
-	"github.com/hylodoc/hylodoc.com/internal/httpclient"
-	"github.com/hylodoc/hylodoc.com/internal/metrics"
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hylodoc/hyloblog/internal/assert"
+	"github.com/hylodoc/hyloblog/internal/config"
+	"github.com/hylodoc/hyloblog/internal/email/emailqueue/internal/postmark"
+	"github.com/hylodoc/hyloblog/internal/httpclient"
+	"github.com/hylodoc/hyloblog/internal/metrics"
+	"github.com/hylodoc/hyloblog/internal/model"
 )
 
 const postmarkBatchSize = 500

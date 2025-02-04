@@ -51,7 +51,7 @@ func ExecTemplate(
 	}
 	if err := tmpl.Execute(w, struct {
 		PageInfo
-		HylodocURL string
+		HyloblogURL string
 		CDN          string
 	}{info, hylodocurl, cdnurl}); err != nil {
 		return fmt.Errorf("execute: %w", err)

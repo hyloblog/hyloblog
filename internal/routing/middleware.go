@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/hylodoc/hylodoc.com/internal/app/handler"
-	"github.com/hylodoc/hylodoc.com/internal/assert"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/routing/internal/usersite"
-	"github.com/hylodoc/hylodoc.com/internal/session"
+	"github.com/hylodoc/hyloblog/internal/app/handler"
+	"github.com/hylodoc/hyloblog/internal/assert"
+	"github.com/hylodoc/hyloblog/internal/model"
+	"github.com/hylodoc/hyloblog/internal/routing/internal/usersite"
+	"github.com/hylodoc/hyloblog/internal/session"
 )
 
 type RoutingService struct {

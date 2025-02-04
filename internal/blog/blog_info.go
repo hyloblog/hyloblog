@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hylodoc/hyloblog/internal/config"
+	"github.com/hylodoc/hyloblog/internal/model"
 )
 
 type BlogInfo struct {
@@ -80,9 +80,9 @@ func getname(blog *model.Blog) string {
 func buildUrl(subdomain string) string {
 	return fmt.Sprintf(
 		"%s://%s.%s",
-		config.Config.Hylodoc.Protocol,
+		config.Config.Hyloblog.Protocol,
 		subdomain,
-		config.Config.Hylodoc.RootDomain,
+		config.Config.Hyloblog.RootDomain,
 	)
 }
 

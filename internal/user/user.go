@@ -6,15 +6,15 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/request"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/authz"
-	"github.com/hylodoc/hylodoc.com/internal/blog"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/installation"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/session"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hylodoc/hyloblog/internal/app/handler/request"
+	"github.com/hylodoc/hyloblog/internal/app/handler/response"
+	"github.com/hylodoc/hyloblog/internal/authz"
+	"github.com/hylodoc/hyloblog/internal/blog"
+	"github.com/hylodoc/hyloblog/internal/config"
+	"github.com/hylodoc/hyloblog/internal/installation"
+	"github.com/hylodoc/hyloblog/internal/model"
+	"github.com/hylodoc/hyloblog/internal/session"
+	"github.com/hylodoc/hyloblog/internal/util"
 )
 
 type UserService struct {
@@ -170,7 +170,7 @@ func (u *UserService) RepositoryFlow(
 				Title:          "Create new blog",
 				UserInfo:       session.ConvertSessionToUserInfo(sesh),
 				AccountDetails: details,
-				RootDomain:     config.Config.Hylodoc.RootDomain,
+				RootDomain:     config.Config.Hyloblog.RootDomain,
 				Repositories:   buildRepositoriesInfo(repos),
 				Themes:         blog.BuildThemes(config.Config.SSG.Themes),
 			},

@@ -7,10 +7,10 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/httpclient"
-	"github.com/hylodoc/hylodoc.com/internal/metrics"
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hylodoc/hyloblog/internal/config"
+	"github.com/hylodoc/hyloblog/internal/httpclient"
+	"github.com/hylodoc/hyloblog/internal/metrics"
+	"github.com/hylodoc/hyloblog/internal/model"
 )
 
 type Email interface {

@@ -10,11 +10,11 @@ import (
 	"strings"
 
 	"github.com/google/uuid"
-	"github.com/hylodoc/hylodoc.com/internal/assert"
-	"github.com/hylodoc/hylodoc.com/internal/blog"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/dns"
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hylodoc/hyloblog/internal/assert"
+	"github.com/hylodoc/hyloblog/internal/blog"
+	"github.com/hylodoc/hyloblog/internal/config"
+	"github.com/hylodoc/hyloblog/internal/dns"
+	"github.com/hylodoc/hyloblog/internal/model"
 )
 
 type Site struct {
@@ -27,7 +27,7 @@ var ErrUnknownSubdomain = errors.New("unknown subdomain")
 var ErrUnknownDomain = errors.New("unknown domain")
 
 func GetSite(host string, s *model.Store) (*Site, error) {
-	if host == config.Config.Hylodoc.RootDomain {
+	if host == config.Config.Hyloblog.RootDomain {
 		return nil, ErrIsService
 	}
 	blog, err := getBlog(host, s)
@@ -61,10 +61,10 @@ func getBlog(host string, s *model.Store) (string, error) {
 var errNotSubdomainForm = errors.New("not subdomain form")
 
 func getBlogBySubdomain(host string, s *model.Store) (string, error) {
-	/* `.hylodoc.com' (dot followed by service name) must follow host */
+	/* `.hyloblog' (dot followed by service name) must follow host */
 	subdomain, found := strings.CutSuffix(
 		host,
-		fmt.Sprintf(".%s", config.Config.Hylodoc.RootDomain),
+		fmt.Sprintf(".%s", config.Config.Hyloblog.RootDomain),
 	)
 	if !found {
 		return "", errNotSubdomainForm

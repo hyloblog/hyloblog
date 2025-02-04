@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hylodoc/hyloblog/internal/model"
 )
 
 type PostBody interface {

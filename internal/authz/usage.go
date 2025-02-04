@@ -8,8 +8,8 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/hylodoc/hylodoc.com/internal/authz/internal/size"
-	"github.com/hylodoc/hylodoc.com/internal/model"
+	"github.com/hylodoc/hyloblog/internal/authz/internal/size"
+	"github.com/hylodoc/hyloblog/internal/model"
 )
 
 func UserStorageUsed(s *model.Store, userID string) (size.Size, error) {

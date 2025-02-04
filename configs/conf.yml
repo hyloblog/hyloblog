@@ -1,5 +1,5 @@
 hylodoc:
-  hylodoc: "Hylodoc"
+  hylodoc: "Hyloblog"
   protocol: "http"
   root_domain: "localhost:7999"
   checkouts_path: "./checkouts"
@@ -8,12 +8,12 @@ hylodoc:
   certs_path: "./certs"
   accounts_email: "accounts@lbnz.dev"	# billing query email
   email_domain: "mails.lbnz.dev"
-  custom_domain_cname: "custom-domain-cname-target.hylodoc.com"
+  custom_domain_cname: "custom-domain-cname-target.hyloblog"
   custom_domain_ip: "34.218.85.117"
   custom_domain_guide_url: "https://google.com"
   open_issue_url: "https://github.com"
   discord_url: "https://discord.com"
-  cdn: "https://cdn.hylodoc.com"
+  cdn: "https://cdn.hyloblog"
 
 ssg:
   themes:
@@ -37,7 +37,7 @@ github:
   link_callback: "http://localhost:7999/gh/linkcallback"
 
 docker:
-  container_name: "hylodoc_container"
+  container_name: "hyloblog_container"
   postgres_image: "postgres:12-alpine"
 
 mixpanel:
@@ -45,7 +45,7 @@ mixpanel:
 
 postgres:
   host: "postgres"
-  name: "hylodoc_db"
+  name: "hyloblog_db"
   user: "postgres"
   schema: "hylodoc"
   password: "<Secret>"

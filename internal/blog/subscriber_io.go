@@ -12,14 +12,14 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/lib/pq"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/request"
-	"github.com/hylodoc/hylodoc.com/internal/app/handler/response"
-	"github.com/hylodoc/hylodoc.com/internal/config"
-	"github.com/hylodoc/hylodoc.com/internal/email"
-	"github.com/hylodoc/hylodoc.com/internal/email/emailaddr"
-	"github.com/hylodoc/hylodoc.com/internal/model"
-	"github.com/hylodoc/hylodoc.com/internal/session"
-	"github.com/hylodoc/hylodoc.com/internal/util"
+	"github.com/hylodoc/hyloblog/internal/app/handler/request"
+	"github.com/hylodoc/hyloblog/internal/app/handler/response"
+	"github.com/hylodoc/hyloblog/internal/config"
+	"github.com/hylodoc/hyloblog/internal/email"
+	"github.com/hylodoc/hyloblog/internal/email/emailaddr"
+	"github.com/hylodoc/hyloblog/internal/model"
+	"github.com/hylodoc/hyloblog/internal/session"
+	"github.com/hylodoc/hyloblog/internal/util"
 )
 
 type SubscribeRequest struct {
@@ -70,7 +70,7 @@ func (b *BlogService) SubscribeToBlog(
 			fmt.Sprintf(
 				"%s@%s",
 				blog.Subdomain,
-				config.Config.Hylodoc.EmailDomain,
+				config.Config.Hyloblog.EmailDomain,
 			),
 		),
 		blog.EmailMode,
@@ -79,8 +79,8 @@ func (b *BlogService) SubscribeToBlog(
 		sitename,
 		fmt.Sprintf(
 			"%s://%s/blogs/unsubscribe?token=%s",
-			config.Config.Hylodoc.Protocol,
-			config.Config.Hylodoc.RootDomain,
+			config.Config.Hyloblog.Protocol,
+			config.Config.Hyloblog.RootDomain,
 			unsubtoken,
 		),
 	); err != nil {
@@ -90,9 +90,9 @@ func (b *BlogService) SubscribeToBlog(
 	return response.NewRedirect(
 		fmt.Sprintf(
 			"%s://%s.%s/subscribed",
-			config.Config.Hylodoc.Protocol,
+			config.Config.Hyloblog.Protocol,
 			blog.Subdomain,
-			config.Config.Hylodoc.RootDomain,
+			config.Config.Hyloblog.RootDomain,
 		),
 		http.StatusTemporaryRedirect,
 	), nil
@@ -180,9 +180,9 @@ func (b *BlogService) UnsubscribeFromBlog(
 	return response.NewRedirect(
 		fmt.Sprintf(
 			"%s://%s.%s/unsubscribed",
-			config.Config.Hylodoc.Protocol,
+			config.Config.Hyloblog.Protocol,
 			blog.Subdomain,
-			config.Config.Hylodoc.RootDomain,
+			config.Config.Hyloblog.RootDomain,
 		),
 		http.StatusTemporaryRedirect,
 	), nil
@@ -233,8 +233,8 @@ func (b *BlogService) EditSubscriber(
 func buildRemoveSubscriberUrl(blogID int32, email string) string {
 	return fmt.Sprintf(
 		"%s://%s/user/blogs/%d/subscriber/delete?email=%s",
-		config.Config.Hylodoc.Protocol,
-		config.Config.Hylodoc.RootDomain,
+		config.Config.Hyloblog.Protocol,
+		config.Config.Hyloblog.RootDomain,
 		blogID,
 		email,
 	)
