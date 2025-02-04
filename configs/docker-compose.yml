@@ -1,5 +1,5 @@
 services:
-  hylodoc:
+  hyloblog:
     container_name: hyloblog_container
     build:
       context: .

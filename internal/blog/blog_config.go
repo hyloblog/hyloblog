@@ -7,14 +7,14 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/hylodoc/hyloblog/internal/app/handler/request"
-	"github.com/hylodoc/hyloblog/internal/app/handler/response"
-	"github.com/hylodoc/hyloblog/internal/authz"
-	"github.com/hylodoc/hyloblog/internal/config"
-	"github.com/hylodoc/hyloblog/internal/httpclient"
-	"github.com/hylodoc/hyloblog/internal/model"
-	"github.com/hylodoc/hyloblog/internal/session"
-	"github.com/hylodoc/hyloblog/internal/util"
+	"github.com/hyloblog/hyloblog/internal/app/handler/request"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/authz"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/httpclient"
+	"github.com/hyloblog/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/session"
+	"github.com/hyloblog/hyloblog/internal/util"
 )
 
 type BlogService struct {

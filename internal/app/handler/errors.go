@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/hylodoc/hyloblog/internal/app/handler/response"
-	"github.com/hylodoc/hyloblog/internal/assert"
-	"github.com/hylodoc/hyloblog/internal/authz"
-	"github.com/hylodoc/hyloblog/internal/config"
-	"github.com/hylodoc/hyloblog/internal/session"
-	"github.com/hylodoc/hyloblog/internal/util"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/assert"
+	"github.com/hyloblog/hyloblog/internal/authz"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/session"
+	"github.com/hyloblog/hyloblog/internal/util"
 )
 
 func HandleError(w http.ResponseWriter, r *http.Request, err error) {

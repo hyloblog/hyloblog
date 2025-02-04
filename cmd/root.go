@@ -9,12 +9,12 @@ import (
 	"time"
 
 	"github.com/spf13/cobra"
-	server "github.com/hylodoc/hyloblog/internal/app"
-	"github.com/hylodoc/hyloblog/internal/config"
-	"github.com/hylodoc/hyloblog/internal/dns"
-	"github.com/hylodoc/hyloblog/internal/email/emailqueue"
-	"github.com/hylodoc/hyloblog/internal/httpclient"
-	"github.com/hylodoc/hyloblog/internal/model"
+	server "github.com/hyloblog/hyloblog/internal/app"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/dns"
+	"github.com/hyloblog/hyloblog/internal/email/emailqueue"
+	"github.com/hyloblog/hyloblog/internal/httpclient"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 const clientTimeout = 30 * time.Second

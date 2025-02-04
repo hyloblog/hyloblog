@@ -240,7 +240,7 @@ described [below](#further) so that we can investigate it further.
 
 If you have any questions about this Policy, would like to speak with us about
 the use of our Marks in ways not described in the Policy, or see any abuse of
-our Marks, please email us at [tm@hyloblog](mailto:tm@hyloblog).
+our Marks, please email us at [tm@hyloblog.com](mailto:tm@hyloblog.com).
 
 ## General considerations about trademarks and their use
 
@@ -307,13 +307,13 @@ them for our Marks as well as anyone else's.
 
 ##### Always distinguish trademarks from surrounding text with at least initial capital letters or in all capital letters.
 
-- Unacceptable: hylodoc
+- Unacceptable: hyloblog
 
 - Acceptable: Hyloblog, HYLOBLOG
 
 ##### Always use trademarks in their exact form with the correct spelling, neither abbreviated, hyphenated, or combined with any other word or words.
 
-- Unacceptable: hYlOdOc
+- Unacceptable: high-low-blog
 
 - Acceptable: Hyloblog
 

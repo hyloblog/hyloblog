@@ -1,4 +1,4 @@
-module github.com/hylodoc/hyloblog
+module github.com/hyloblog/hyloblog
 
 go 1.23
 
@@ -9,7 +9,7 @@ require (
 	github.com/golang-jwt/jwt v3.2.2+incompatible
 	github.com/google/uuid v1.6.0
 	github.com/gorilla/mux v1.8.1
-	github.com/hylodoc/hylodoc v0.0.0-20250125135732-7232b9349eca
+	github.com/hyloblog/hyloblog-ssg v0.0.0-20250204031636-3e3fa00a6c68
 	github.com/lib/pq v1.10.9
 	github.com/mixpanel/mixpanel-go v1.2.1
 	github.com/prometheus/client_golang v1.20.5

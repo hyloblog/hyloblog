@@ -34,7 +34,7 @@ type PageInfo struct {
 
 func ExecTemplate(
 	w io.Writer, names []string, info PageInfo,
-	hylodocurl, cdnurl string,
+	hyloblogurl, cdnurl string,
 ) error {
 	tmpl, err := template.New(names[0]).Funcs(
 		template.FuncMap{
@@ -53,7 +53,7 @@ func ExecTemplate(
 		PageInfo
 		HyloblogURL string
 		CDN          string
-	}{info, hylodocurl, cdnurl}); err != nil {
+	}{info, hyloblogurl, cdnurl}); err != nil {
 		return fmt.Errorf("execute: %w", err)
 	}
 	return nil

@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hylodoc/hyloblog/internal/assert"
-	"github.com/hylodoc/hyloblog/internal/authz/internal/option"
-	"github.com/hylodoc/hyloblog/internal/authz/internal/size"
-	"github.com/hylodoc/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/assert"
+	"github.com/hyloblog/hyloblog/internal/authz/internal/option"
+	"github.com/hyloblog/hyloblog/internal/authz/internal/size"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 func CanCreateSite(s *model.Store, userid string) (bool, error) {

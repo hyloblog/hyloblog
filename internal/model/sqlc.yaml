@@ -13,12 +13,12 @@ sql:
         overrides:
           - column: blogs.subdomain
             go_type:
-              import: "github.com/hylodoc/hyloblog/internal/dns"
+              import: "github.com/hyloblog/hyloblog/internal/dns"
               type: "Subdomain"
               pointer: true
 
           - column: reserved_subdomains.subdomain
             go_type:
-              import: "github.com/hylodoc/hyloblog/internal/dns"
+              import: "github.com/hyloblog/hyloblog/internal/dns"
               type: "Subdomain"
               pointer: true

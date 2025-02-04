@@ -7,4 +7,4 @@ RUN pandoc --version
 WORKDIR /app
 COPY . .
 
-CMD ./bin/hylodoc
+CMD ./bin/hyloblog

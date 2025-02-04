@@ -10,11 +10,11 @@ import (
 	"strings"
 
 	"github.com/google/uuid"
-	"github.com/hylodoc/hyloblog/internal/assert"
-	"github.com/hylodoc/hyloblog/internal/blog"
-	"github.com/hylodoc/hyloblog/internal/config"
-	"github.com/hylodoc/hyloblog/internal/dns"
-	"github.com/hylodoc/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/assert"
+	"github.com/hyloblog/hyloblog/internal/blog"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/dns"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 type Site struct {

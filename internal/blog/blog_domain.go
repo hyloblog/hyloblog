@@ -10,12 +10,12 @@ import (
 	"strings"
 
 	"github.com/lib/pq"
-	"github.com/hylodoc/hyloblog/internal/app/handler/request"
-	"github.com/hylodoc/hyloblog/internal/app/handler/response"
-	"github.com/hylodoc/hyloblog/internal/authz"
-	"github.com/hylodoc/hyloblog/internal/config"
-	"github.com/hylodoc/hyloblog/internal/dns"
-	"github.com/hylodoc/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/app/handler/request"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
+	"github.com/hyloblog/hyloblog/internal/authz"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/dns"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 type SubdomainRequest struct {

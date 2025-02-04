@@ -7,8 +7,8 @@ import (
 	"net/url"
 	"time"
 
-	"github.com/hylodoc/hyloblog/internal/config"
-	"github.com/hylodoc/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 type BlogInfo struct {

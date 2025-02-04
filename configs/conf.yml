@@ -1,5 +1,5 @@
-hylodoc:
-  hylodoc: "Hyloblog"
+hyloblog:
+  hyloblog: "Hyloblog"
   protocol: "http"
   root_domain: "localhost:7999"
   checkouts_path: "./checkouts"
@@ -28,7 +28,7 @@ ssg:
 
 github:
   app_id: 999929
-  app_name: "hylodoc-dev"
+  app_name: "hyloblog-dev"
   client_id: "<GithubClientID>"
   client_secret: "<GithubClientSecret>"
   webhook_secret: "<GithubWebhookSecret>"
@@ -47,7 +47,7 @@ postgres:
   host: "postgres"
   name: "hyloblog_db"
   user: "postgres"
-  schema: "hylodoc"
+  schema: "hyloblog"
   password: "<Secret>"
   port: 5432
 

@@ -4,7 +4,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/hylodoc/hyloblog/internal/metrics"
+	"github.com/hyloblog/hyloblog/internal/metrics"
 )
 
 /* wrapper around standard client */

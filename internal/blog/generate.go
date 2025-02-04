@@ -8,11 +8,11 @@ import (
 	"path/filepath"
 
 	"github.com/google/uuid"
-	"github.com/hylodoc/hyloblog/internal/assert"
-	"github.com/hylodoc/hyloblog/internal/authz"
-	"github.com/hylodoc/hyloblog/internal/config"
-	"github.com/hylodoc/hyloblog/internal/model"
-	"github.com/hylodoc/hylodoc/pkg/ssg"
+	"github.com/hyloblog/hyloblog-ssg/pkg/ssg"
+	"github.com/hyloblog/hyloblog/internal/assert"
+	"github.com/hyloblog/hyloblog/internal/authz"
+	"github.com/hyloblog/hyloblog/internal/config"
+	"github.com/hyloblog/hyloblog/internal/model"
 )
 
 func GetFreshGeneration(blogid string, s *model.Store) (int32, error) {

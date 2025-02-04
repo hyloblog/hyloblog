@@ -19,7 +19,7 @@ func init() {
 var Config Configuration
 
 type Configuration struct {
-	Hyloblog          HyloblogParams    `mapstructure:"hylodoc"`
+	Hyloblog          HyloblogParams    `mapstructure:"hyloblog"`
 	SSG       SSGParams `mapstructure:"ssg"`
 	Github             GithubParams       `mapstructure:"github"`
 	Db                 DbParams           `mapstructure:"postgres"`
@@ -30,7 +30,7 @@ type Configuration struct {
 }
 
 type HyloblogParams struct {
-	Hyloblog            string `mapstructure:"hylodoc"`
+	Hyloblog            string `mapstructure:"hyloblog"`
 	Protocol             string `mapstructure:"protocol"`
 	RootDomain           string `mapstructure:"root_domain"`
 	CheckoutsPath        string `mapstructure:"checkouts_path"`

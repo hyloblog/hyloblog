@@ -1,6 +1,6 @@
 package main
 
-import "github.com/hylodoc/hyloblog/cmd"
+import "github.com/hyloblog/hyloblog/cmd"
 
 func main() {
 	cmd.Execute()

@@ -6,11 +6,11 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/hylodoc/hyloblog/internal/app/handler"
-	"github.com/hylodoc/hyloblog/internal/assert"
-	"github.com/hylodoc/hyloblog/internal/model"
-	"github.com/hylodoc/hyloblog/internal/routing/internal/usersite"
-	"github.com/hylodoc/hyloblog/internal/session"
+	"github.com/hyloblog/hyloblog/internal/app/handler"
+	"github.com/hyloblog/hyloblog/internal/assert"
+	"github.com/hyloblog/hyloblog/internal/model"
+	"github.com/hyloblog/hyloblog/internal/routing/internal/usersite"
+	"github.com/hyloblog/hyloblog/internal/session"
 )
 
 type RoutingService struct {
@@ -49,12 +49,12 @@ func (s *RoutingService) Middleware(next http.Handler) http.Handler {
 }
 
 func (s *RoutingService) tryRoute(
-	w http.ResponseWriter, r *http.Request, hylodoc http.Handler,
+	w http.ResponseWriter, r *http.Request, hyloblog http.Handler,
 ) error {
 	site, err := usersite.GetSite(r.Host, s.store)
 	if err != nil {
 		if errors.Is(err, usersite.ErrIsService) {
-			hylodoc.ServeHTTP(w, r)
+			hyloblog.ServeHTTP(w, r)
 			return nil
 		}
 		return fmt.Errorf("get site: %w", err)
