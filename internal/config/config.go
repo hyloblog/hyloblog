@@ -19,18 +19,18 @@ func init() {
 var Config Configuration
 
 type Configuration struct {
-	Hyloblog          HyloblogParams    `mapstructure:"hyloblog"`
-	SSG       SSGParams `mapstructure:"ssg"`
-	Github             GithubParams       `mapstructure:"github"`
-	Db                 DbParams           `mapstructure:"postgres"`
-	Email              EmailParams        `mapstructure:"email"`
-	Stripe             StripeParams       `mapstructure:"stripe"`
-	Mixpanel           MixpanelParams     `mapstructure:"mixpanel"`
-	ReservedSubdomains []string           `mapstructure:"reserved_subdomains"`
+	Hyloblog           HyloblogParams `mapstructure:"hyloblog"`
+	SSG                SSGParams      `mapstructure:"ssg"`
+	Github             GithubParams   `mapstructure:"github"`
+	Db                 DbParams       `mapstructure:"postgres"`
+	Email              EmailParams    `mapstructure:"email"`
+	Stripe             StripeParams   `mapstructure:"stripe"`
+	Mixpanel           MixpanelParams `mapstructure:"mixpanel"`
+	ReservedSubdomains []string       `mapstructure:"reserved_subdomains"`
 }
 
 type HyloblogParams struct {
-	Hyloblog            string `mapstructure:"hyloblog"`
+	Hyloblog             string `mapstructure:"hyloblog"`
 	Protocol             string `mapstructure:"protocol"`
 	RootDomain           string `mapstructure:"root_domain"`
 	CheckoutsPath        string `mapstructure:"checkouts_path"`
@@ -39,6 +39,7 @@ type HyloblogParams struct {
 	WebsitesPath         string `mapstructure:"websites_path"`
 	EmailDomain          string `mapstructure:"email_domain"`
 	AccountsEmail        string `mapstructure:"accounts_email"`
+	SupportEmail         string `mapstructure:"support_email"`
 	CustomDomainCNAME    string `mapstructure:"custom_domain_cname"`
 	CustomDomainIP       string `mapstructure:"custom_domain_ip"`
 	CustomDomainGuideURL string `mapstructure:"custom_domain_guide_url"`

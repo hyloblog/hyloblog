@@ -232,11 +232,13 @@ func (u *UserService) Account(r request.Request) (response.Response, error) {
 				Title          string
 				UserInfo       *session.UserInfo
 				AccountDetails AccountDetails
+				SupportEmail   string
 				StorageDetails StorageDetails
 			}{
 				Title:          "Home",
 				UserInfo:       session.ConvertSessionToUserInfo(sesh),
 				AccountDetails: accountDetails,
+				SupportEmail:   config.Config.Hyloblog.SupportEmail,
 				StorageDetails: storageDetails,
 			},
 		},
