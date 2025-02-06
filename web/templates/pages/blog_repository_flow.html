@@ -13,18 +13,29 @@
 		<form id="blogForm" onsubmit="return false;">
 			{{ if not .Data.AccountDetails.HasInstallation }}
 				<p>
-					To use the repository flow, you need to
-					install our GitHub App and grant us
-					access to the relevent repositories <a
-					href="github-installation">Install
-				GitHub App</a>
+					<a href="github-installation">Install</a>
+					our app on GitHub and grant access for
+					any repositories you want to use.
 				</p>
 			{{ else }}
 				<p>
-					To manage your Github Installations, add/remove repositories.
-					<a href="github-installation">Manage Installations</a>
+					<a href="github-installation">Grant</a>
+					access on GitHub for repositories you
+					want to use.
 				</p>
 			{{ end }}
+
+			<!-- Select repository -->
+			<div class="row">
+				<div class="four columns">
+					<label for="repositoriesDropdown">Select repository</label>
+					<select id="repositoriesDropdown">
+						{{ range .Data.Repositories }}
+							<option value="{{ .Value }}">{{ .Name }}</option>
+						{{ end }}
+					</select>
+				</div>
+			</div>
 
 			<!-- Subdomain configuration -->
 			<label for="subdomainInput">Set subdomain</label>
@@ -39,7 +50,7 @@
 			<!-- Select theme -->
 			<div class="row">
 				<div class="four columns">
-					<label for="themesDropdown">Select a theme</label>
+					<label for="themesDropdown">Select theme</label>
 					<select id="themesDropdown">
 						{{ range .Data.Themes }}
 							<option value="{{ . }}">{{ . }}</option>
@@ -47,19 +58,6 @@
 					</select>
 				</div>
 			</div>
-
-			<!-- Select repository -->
-			<div class="row">
-				<div class="four columns">
-					<label for="repositoriesDropdown">Select a repository</label>
-					<select id="repositoriesDropdown">
-						{{ range .Data.Repositories }}
-							<option value="{{ .Value }}">{{ .Name }}</option>
-						{{ end }}
-					</select>
-				</div>
-			</div>
-
 			<!-- Submit git branch for live builds -->
 			<div class="row">
 				<label for="liveBranchInput">Set branch</label>
