@@ -38,6 +38,9 @@ func runbatchtx(c *httpclient.Client, s *model.Store) error {
 	if err != nil {
 		return fmt.Errorf("get top N: %w", err)
 	}
+	if len(emails) == 0 {
+		return nil
+	}
 	batch, err := buildbatch(emails, s)
 	if err != nil {
 		return fmt.Errorf("build batch: %w", err)
@@ -129,7 +132,7 @@ func getheaders(emailid int32, s *model.Store) (map[string]string, error) {
 	}
 	headers := map[string]string{}
 	for _, h := range dbheaders {
-		headers[h.Name] = headers[h.Value]
+		headers[h.Name] = h.Value
 	}
 	return headers, nil
 }
