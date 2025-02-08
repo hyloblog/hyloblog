@@ -1,8 +1,36 @@
 # Hyloblog
 
-[Hylodoc platform](https://hyloblog.com) | [Chat on Doscord](https://discord.com/invite/E665nuukYn)
+[Hylodoc platform](https://hyloblog.com) | [Blog](https://blog.hyloblog.com) |  [Chat on Doscord](https://discord.com/invite/E665nuukYn)
 
-This is a repository containing the hyloblog software.
+This is a repository containing the Hyloblog software.
+
+## About
+
+<!-- basic description -->
+Hyloblog is a static site generator. The name derives from ὕλη, the Greek word
+for _matter_.
+
+<!-- how it works -->
+Hyloblog generates blog sites (like [this one][blog]) from Markdown files in
+Git repos using simple default rules to limit metadata in source files, such as
+
+- The highest-level title in an `*.md` source file is treated as the title of
+  the corresponding blog post
+
+- The date and author of the commit when an `*.md` file is first added are
+  the date and author of the post
+
+- The path to a given file within the repo is mirrored exactly in the generated
+  files, so if you want an `/updates` section in your blog you simply make a
+  directory and start writing updates.
+
+  [blog]: https://github.com/hyloblog/blog
+
+<!-- influences -->
+Although Hyloblog learns from static-site generators like Jekyll and Hugo, an
+important influence is LaTeX.
+We want to emphasise the same form/content separation in blogging and site
+building that LaTeX accomplishes in typesetting.
 
 ## Building
 
