@@ -1,6 +1,6 @@
 # Hyloblog
 
-[![Hosted Platform]()](https://hyloblog.com)
+[![Hosted Platform](https://img.shields.io/badge/hosted%20platform)](https://hyloblog.com)
 [![Discord Server](https://img.shields.io/badge/discord-gray?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/E665nuukYn)
 
 This is a repository containing the hyloblog software.
