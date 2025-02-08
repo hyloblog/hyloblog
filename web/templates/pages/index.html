@@ -1,44 +1,72 @@
 {{ template "header" . }}
 
 <div class="container">
-	<h1>Blogging for programmers</h1>
 	<p>
-	We're building <a href="https://xr0.dev">Xr0</a> and enjoy blogging about it.
+		We're building <a href="https://xr0.dev">Xr0</a> and enjoy
+		writing about it.
 	</p>
 	<p>
-	But existing static-site generators like Jekyll and Hugo are powerful but lack reader-interaction features such as subscriber emails, metrics and so on. There's nothing wrong with this &mdash; they're literally called <em>static</em>&hyphen;site generators &mdash; but we want more.
+		Substack offers great interactivity, but isn't built for
+		technical writing. It has poor support for code: no syntax
+		highlighting and the inline code rendering is
+			<span class="substack-code">jarring</span>.
+		Plus, we want to manage our blog posts as text files with Git.
 	</p>
+
 	<p>
-	And although Substack offers great interactivity, but isn't built for programmers. It has poor support for code: no syntax highlighting and the inline code rendering is <span class="substack-code">jarring</span>. Plus, we want to manage our blog posts as text files with Git.
+		Existing static-site generators like Jekyll and Hugo are
+		powerful but seem to prioritise customisability over writing.
+		Names like
+			<em>assets</em>,
+			<em>layouts</em>,
+			<em>data</em>,
+			<em>includes</em> etc.
+		dominate project folders instead of your actual writing.
+		There's nothing wrong with this; we just want something
+		simpler, so we built Hyloblog.
 	</p>
 
-	<article>
-		<h2>Enter Hyloblog: Substack for programmers &#129395;</h2>
-		<ul>
-			<li>
-				<strong>Markdown and git first:</strong> Generate sites from Git repos. Markdown files are pages and code looks beautiful. Simply push your changes to a configured branch to apply changes to your site.
-			</li>
-			<li>
-				<strong>Separation of form and content:</strong> No custom CSS &mdash; pick a <a href="/theme">theme</a> and start writing.<br>
-			</li>
-			<li>
-				<strong>Batteries included:</strong> Email lists, metrics, custom domains, one&hyphen;click subscriber export are built-in. Prefer plaintext emails? We got you covered.
-			</li>
-			<li>
-				<strong>Open source:</strong> Both the platform and SSG are open to the community.
-			</li>
-		</ul>
-	</article>
+	<p>
+	Hyloblog is
+	</p>
+	<ul>
+		<li>
+			<strong>Markdown and Git first.</strong>
+			Generate sites from Git repos.
+			Markdown files are pages and code looks beautiful.
+			Simply push your changes to a configured branch to apply
+			changes to your site.
+		</li>
+		<li>
+			<strong>Concentrate on content.</strong>
+			No custom CSS &mdash; pick a theme and start writing.
+		</li>
+		<li>
+			<strong>A few batteries included.</strong>
+			Email lists, basic metrics, custom domains,
+			one&hyphen;click subscriber export are built-in.
+			Prefer plaintext emails? We got you covered.
+		</li>
+		<li>
+			<strong>Open source.</strong>
+			Hyloblog is available on
+				<a href="https://github.com/hyloblog">GitHub</a>
+			under an
+				Apache 2.0 License.
+		</li>
+	</ul>
 
-
-	<article>
-		<h3>&#128640; Launch a Hyloblog in 5 minutes</h3>
-		<ol>
-			<li>Create a new <a
-					href="https://github.com/">GitHub</a> repository with a file called index.md.</li>
-			<li>Log into <a href="{{ .Data.HyloblogLink }}">hyloblog.com</a> click "Create new blog," install the GitHub App, and generate your blog.</li>
-		</ol>
-	</article>
+	<h3>&#128640; Launch a Hyloblog in 5 minutes</h3>
+	<ol>
+		<li>
+			Create a repo on <a href="https://github.com/">GitHub</a>
+			with a file called <em>index.md</em>.
+		</li>
+		<li>
+			<a href="{{ .Data.HyloblogLink }}">Log in</a> and
+			hit <em>Create new blog</em>.
+		</li>
+	</ol>
 
 </div>
 
