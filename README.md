@@ -4,7 +4,7 @@
 
 <!-- basic description -->
 Hyloblog is a blogging platform and a [static site generator](https://github.com/hyloblog/hyloblog-ssg). The name derives from ὕλη,
-the Greek word for _matter_.
+the Greek word for _matter_. This is the repository for the blogging platform.
 
 <!-- how it works -->
 Hyloblog generates blog sites (like [this one][blog]) from Markdown files in
