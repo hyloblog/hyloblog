@@ -17,7 +17,32 @@
 			<input class="button" type="submit" value="Save">
 		</form>
 
-
+		You can point your domain at Hyloblog using either an
+			<strong>A</strong>
+		or
+			<strong>CNAME</strong>
+		record, as shown beneath:
+		<table class="u-full-width">
+			<thead>
+				<tr>
+					<th>Type</th>
+					<th>Name</th>
+					<th>Value</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>A</td>
+					<td>[[ your domain name ]]</td>
+					<td>{{ .Data.CustomDomainIP }}</td>
+				</tr>
+				<tr>
+					<td>CNAME</td>
+					<td>[[ your domain name ]]</td>
+					<td>{{ .Data.CustomDomainCNAME }}</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
 </section>
 

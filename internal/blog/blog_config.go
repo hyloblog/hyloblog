@@ -489,15 +489,19 @@ func (b *BlogService) ConfigDomain(
 		[]string{"blog_custom_domain.html"},
 		util.PageInfo{
 			Data: struct {
-				Title    string
-				UserInfo *session.UserInfo
-				ID       string
-				Blog     BlogInfo
+				Title             string
+				UserInfo          *session.UserInfo
+				ID                string
+				Blog              BlogInfo
+				CustomDomainCNAME string
+				CustomDomainIP    string
 			}{
-				Title:    "Custom domain configuration",
-				UserInfo: session.ConvertSessionToUserInfo(sesh),
-				ID:       blogID,
-				Blog:     blogInfo,
+				Title:             "Custom domain configuration",
+				UserInfo:          session.ConvertSessionToUserInfo(sesh),
+				ID:                blogID,
+				Blog:              blogInfo,
+				CustomDomainCNAME: config.Config.Hyloblog.CustomDomainCNAME,
+				CustomDomainIP:    config.Config.Hyloblog.CustomDomainIP,
 			},
 		},
 	), nil
