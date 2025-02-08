@@ -1,8 +1,39 @@
 # Hyloblog
 
+[Platform](https://hyloblog.com) | [Blog](https://blog.hyloblog.com) | [Discord](https://discord.com/invite/E665nuukYn)
+
+<!-- basic description -->
+Hyloblog is a blogging platform and a [static site generator](https://github.com/hyloblog/hyloblog-ssg). The name derives from ὕλη,
+the Greek word for _matter_. This is the repository for the blogging platform.
+
+<!-- how it works -->
+Hyloblog generates blog sites (like [this one][blog]) from Markdown files in
+Git repos using simple default rules to limit metadata in source files, such as
+
+- The highest-level title in an `*.md` source file is treated as the title of
+  the corresponding blog post
+
+- The date and author of the commit when an `*.md` file is first added are
+  the date and author of the post
+
+- The path to a given file within the repo is mirrored exactly in the generated
+  files, so if you want an `/updates` section in your blog you simply make a
+  directory and start writing updates.
+
+  [blog]: https://github.com/hyloblog/blog
+
+<!-- influences -->
+Although Hyloblog learns from static-site generators like Jekyll and Hugo, an
+important influence is LaTeX.
+We want to emphasise the same form/content separation in blogging and site
+building that LaTeX accomplishes in typesetting.
+
 ## Building
 
-Some of the Make targets require sudo on Ubuntu, which is supplied in the
+Copy the files in [configs](https://github.com/hyloblog/hyloblog/tree/chore/readme-update/configs)
+into the root directory and modify them as appropriate.
+
+Some of the targets require sudo on Ubuntu, which is supplied in the
 following way:
 
 ```bash
@@ -18,8 +49,7 @@ make up SUDO=sudo BUILDARGS=--static
 ## License and trademark
 
 This repository contains the Hyloblog software, covered under the 
-[Apache 2.0 License](LICENSE),
-except where noted.
+[Apache 2.0 License](LICENSE), except where noted.
 
 You are free to make your own distribution of the software, but you cannot use
 any of the Hyloblog trademarks, as explained in
