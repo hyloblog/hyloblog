@@ -23,6 +23,14 @@
 					{{end}}
 				</tr>
 				{{end}}
+				{{range $price := .Data.Prices}}
+				<tr>
+					<td>{{ $price.Name }}</td>
+					{{ range $tier := $.Data.Tiers}}
+					<td>{{ $price.Value $tier }}</td>
+					{{end}}
+				</tr>
+				{{end}}
 			</tbody>
 		</table>
 	</div>

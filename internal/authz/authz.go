@@ -65,10 +65,12 @@ type subscriptionTier struct {
 	name                              string
 	projects                          int
 	storageSize                       digitalsize.Size
-	visitorsPerMonth                  trafficsize.Size
+	visitors                          trafficsize.Size
 	themes                            []string
 	codeStyles                        []string
 	analyticsCustomDomainImagesEmails option.Option
+	monthlyPrice                      int
+	annualPrice                       int
 }
 
 func (tier subscriptionTier) Name() string { return tier.name }
@@ -78,19 +80,23 @@ var subscriptionTiers = map[model.SubName]subscriptionTier{
 		name:                              "basic",
 		projects:                          1,
 		storageSize:                       32 * digitalsize.Megabyte,
-		visitorsPerMonth:                  10000,
+		visitors:                          10000,
 		themes:                            []string{"lit"},
 		codeStyles:                        []string{"lit"},
 		analyticsCustomDomainImagesEmails: option.New(false),
+		monthlyPrice:                      0,
+		annualPrice:                       0,
 	},
 	model.SubNamePremium: {
 		name:                              "premium",
 		projects:                          10,
 		storageSize:                       digitalsize.Gigabyte,
-		visitorsPerMonth:                  100000,
+		visitors:                          100000,
 		themes:                            []string{"lit", "latex"},
 		codeStyles:                        []string{"lit", "latex"},
 		analyticsCustomDomainImagesEmails: option.New(true),
+		monthlyPrice:                      7,
+		annualPrice:                       72,
 	},
 }
 
@@ -103,7 +109,7 @@ func GetFeatures() []Feature {
 	return []Feature{
 		featureProjects,
 		featureStorage,
-		featureVisitorsPerMonth,
+		featureVisitors,
 		featureCustomDomain,
 		featureEmailSubscribers,
 		featureAnalytics,
@@ -115,7 +121,7 @@ type feature int
 const (
 	featureProjects feature = iota
 	featureStorage
-	featureVisitorsPerMonth
+	featureVisitors
 	featureCustomDomain
 	featureEmailSubscribers
 	featureAnalytics
@@ -127,7 +133,7 @@ func (f feature) Name() string {
 		return "Projects"
 	case featureStorage:
 		return "Storage"
-	case featureVisitorsPerMonth:
+	case featureVisitors:
 		return "Visitors per month"
 	case featureCustomDomain:
 		return "Custom domain"
@@ -149,12 +155,52 @@ func (f feature) Value(rawtier Tier) string {
 		return fmt.Sprintf("%d", tier.projects)
 	case featureStorage:
 		return tier.storageSize.Abbrev(0)
-	case featureVisitorsPerMonth:
-		return tier.visitorsPerMonth.Abbrev(0)
+	case featureVisitors:
+		return tier.visitors.Abbrev(0)
 	case featureCustomDomain,
 		featureEmailSubscribers,
 		featureAnalytics:
 		return tier.analyticsCustomDomainImagesEmails.String()
+	default:
+		assert.Assert(false)
+		return ""
+	}
+}
+
+type Price interface {
+	Name() string
+	Value(Tier) string
+}
+
+func GetPrices() []Price { return []Price{priceMonthly, priceAnnual} }
+
+type price int
+
+const (
+	priceMonthly price = iota
+	priceAnnual
+)
+
+func (p price) Name() string {
+	switch p {
+	case priceMonthly:
+		return "Monthly price"
+	case priceAnnual:
+		return "Annual price"
+	default:
+		assert.Assert(false)
+		return ""
+	}
+}
+
+func (p price) Value(rawtier Tier) string {
+	tier, ok := rawtier.(subscriptionTier)
+	assert.Assert(ok)
+	switch p {
+	case priceMonthly:
+		return fmt.Sprintf("$%d", tier.monthlyPrice)
+	case priceAnnual:
+		return fmt.Sprintf("$%d", tier.annualPrice)
 	default:
 		assert.Assert(false)
 		return ""

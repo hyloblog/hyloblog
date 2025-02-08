@@ -47,11 +47,13 @@ func (b *BillingService) Pricing(r request.Request) (response.Response, error) {
 				Title    string
 				UserInfo *session.UserInfo
 				Features []authz.Feature
+				Prices   []authz.Price
 				Tiers    []authz.Tier
 			}{
 				Title:    "Pricing",
 				UserInfo: session.ConvertSessionToUserInfo(r.Session()),
 				Features: authz.GetFeatures(),
+				Prices:   authz.GetPrices(),
 				Tiers:    authz.GetTiers(),
 			},
 		},
