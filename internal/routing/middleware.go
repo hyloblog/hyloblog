@@ -6,9 +6,11 @@ import (
 	"net/http"
 	"net/url"
 
+	"github.com/hyloblog/hyloblog/internal/analytics"
 	"github.com/hyloblog/hyloblog/internal/app/handler"
 	"github.com/hyloblog/hyloblog/internal/app/handler/response"
 	"github.com/hyloblog/hyloblog/internal/assert"
+	"github.com/hyloblog/hyloblog/internal/config"
 	"github.com/hyloblog/hyloblog/internal/model"
 	"github.com/hyloblog/hyloblog/internal/routing/internal/usersite"
 	"github.com/hyloblog/hyloblog/internal/session"
@@ -78,6 +80,9 @@ func (s *RoutingService) tryRoute(
 		)
 		return nil
 	}
+	analytics.NewMixpanelClientWrapper(
+		config.Config.Mixpanel.Token,
+	).TrackUserSite(r.Host, r.URL.String(), r)
 	if err := site.RecordVisit(r.URL.Path, s.store); err != nil {
 		return fmt.Errorf("record visit: %w", err)
 	}
