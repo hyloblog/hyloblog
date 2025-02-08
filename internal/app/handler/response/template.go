@@ -27,6 +27,7 @@ func (t *tmpl) Respond(w http.ResponseWriter, _ *http.Request) error {
 			config.Config.Hyloblog.Protocol,
 			config.Config.Hyloblog.RootDomain,
 		),
+		config.Config.Hyloblog.BlogURL,
 		config.Config.Hyloblog.CDN,
 	); err != nil {
 		return err

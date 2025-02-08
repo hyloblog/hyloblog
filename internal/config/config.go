@@ -45,6 +45,7 @@ type HyloblogParams struct {
 	CustomDomainIP       string `mapstructure:"custom_domain_ip"`
 	CustomDomainGuideURL string `mapstructure:"custom_domain_guide_url"`
 	CDN                  string `mapstructure:"cdn"`
+	BlogURL              string `mapstructure:"blog_url"`
 	DiscordURL           string `mapstructure:"discord_url"`
 	OpenIssueURL         string `mapstructure:"open_issue_url"`
 }

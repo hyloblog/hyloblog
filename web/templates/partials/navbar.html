@@ -5,9 +5,9 @@
 		<div class="row">
 			<!-- Logo/Brand -->
 				{{ if .Data.UserInfo.UserID }}
-			<div class="seven columns u-pull-left">
+			<div class="six columns u-pull-left">
 				{{ else }}
-			<div class="nine columns u-pull-left">
+			<div class="eight columns u-pull-left">
 				{{ end }}
 				<a href="{{ .HyloblogURL }}"><img class="logo" src="{{ .CDN }}/img/logo.svg"></a>
 			</div>
@@ -15,9 +15,10 @@
 			{{ if not .Data.UserInfo.IsErrorPage }}
 			<!-- Navigation Links -->
 				{{ if .Data.UserInfo.UserID }}
-			<div class="five columns u-pull-right">
+			<div class="six columns u-pull-right">
 				<a href="{{ .HyloblogURL }}/">home</a>
 				<a href="{{ .HyloblogURL }}/pricing">pricing</a>
+				<a href="{{ .BlogURL }}">blog</a>
 				<a href="{{ .HyloblogURL }}/user/account">profile</a>
 				<span class="separator">~</span>
 				<a href="{{ .HyloblogURL }}/user/auth/logout">log out</a>
@@ -25,8 +26,9 @@
 				<a href="https://github.com/hyloblog/hyloblog"><img src="{{ .CDN }}/img/github.svg" alt="Github"></a>
 			</div>
 				{{ else }}
-			<div class="three columns u-pull-right">
+			<div class="four columns u-pull-right">
 				<a href="{{ .HyloblogURL }}/pricing">pricing</a>
+				<a href="{{ .BlogURL }}">blog</a>
 				<a href="{{ .HyloblogURL }}/gh/login">log in</a>
 				<a href="https://discord.gg/Cvh8c7Rk"><img src="{{ .CDN }}/img/discord.svg" alt="Discord"></a>
 				<a href="https://github.com/hyloblog/hyloblog"><img src="{{ .CDN }}/img/github.svg" alt="Github"></a>

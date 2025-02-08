@@ -12,6 +12,7 @@ hyloblog:
   custom_domain_cname: "custom-domain-cname-target.hyloblog"
   custom_domain_ip: "34.218.85.117"
   custom_domain_guide_url: "https://google.com"
+  blog_url: "https://myblog.com"
   open_issue_url: "https://github.com"
   discord_url: "https://discord.com"
   cdn: "https://cdn.hyloblog"
