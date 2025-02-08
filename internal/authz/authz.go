@@ -5,8 +5,9 @@ import (
 	"fmt"
 
 	"github.com/hyloblog/hyloblog/internal/assert"
+	"github.com/hyloblog/hyloblog/internal/authz/digitalsize"
 	"github.com/hyloblog/hyloblog/internal/authz/internal/option"
-	"github.com/hyloblog/hyloblog/internal/authz/internal/size"
+	"github.com/hyloblog/hyloblog/internal/authz/internal/trafficsize"
 	"github.com/hyloblog/hyloblog/internal/model"
 )
 
@@ -63,8 +64,8 @@ func GetTiers() []Tier {
 type subscriptionTier struct {
 	name                              string
 	projects                          int
-	storageSize                       size.Size
-	visitorsPerMonth                  int
+	storageSize                       digitalsize.Size
+	visitorsPerMonth                  trafficsize.Size
 	themes                            []string
 	codeStyles                        []string
 	analyticsCustomDomainImagesEmails option.Option
@@ -76,7 +77,7 @@ var subscriptionTiers = map[model.SubName]subscriptionTier{
 	model.SubNameBasic: {
 		name:                              "basic",
 		projects:                          1,
-		storageSize:                       32 * size.Megabyte,
+		storageSize:                       32 * digitalsize.Megabyte,
 		visitorsPerMonth:                  10000,
 		themes:                            []string{"lit"},
 		codeStyles:                        []string{"lit"},
@@ -85,7 +86,7 @@ var subscriptionTiers = map[model.SubName]subscriptionTier{
 	model.SubNamePremium: {
 		name:                              "premium",
 		projects:                          10,
-		storageSize:                       size.Gigabyte,
+		storageSize:                       digitalsize.Gigabyte,
 		visitorsPerMonth:                  100000,
 		themes:                            []string{"lit", "latex"},
 		codeStyles:                        []string{"lit", "latex"},
@@ -149,7 +150,7 @@ func (f feature) Value(rawtier Tier) string {
 	case featureStorage:
 		return tier.storageSize.Abbrev(0)
 	case featureVisitorsPerMonth:
-		return fmt.Sprintf("%d", tier.visitorsPerMonth)
+		return tier.visitorsPerMonth.Abbrev(0)
 	case featureCustomDomain,
 		featureEmailSubscribers,
 		featureAnalytics:
@@ -161,7 +162,7 @@ func (f feature) Value(rawtier Tier) string {
 }
 
 func (s *subscriptionTier) canCreateProject(
-	sizeUsed size.Size, blogCount int,
+	sizeUsed digitalsize.Size, blogCount int,
 ) bool {
 	return blogCount < s.projects && sizeUsed < s.storageSize
 }

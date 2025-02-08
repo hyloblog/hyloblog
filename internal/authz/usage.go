@@ -8,11 +8,11 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/hyloblog/hyloblog/internal/authz/internal/size"
+	"github.com/hyloblog/hyloblog/internal/authz/digitalsize"
 	"github.com/hyloblog/hyloblog/internal/model"
 )
 
-func UserStorageUsed(s *model.Store, userID string) (size.Size, error) {
+func UserStorageUsed(s *model.Store, userID string) (digitalsize.Size, error) {
 	paths, err := s.ListRepositoriesGitdirPathsByUserID(
 		context.TODO(), userID,
 	)
@@ -34,7 +34,7 @@ func UserStorageUsed(s *model.Store, userID string) (size.Size, error) {
 		}
 		totalBytes += bytes
 	}
-	return size.Size(totalBytes), nil
+	return digitalsize.Size(totalBytes), nil
 }
 
 /* calculate the disk usage of a single folder */

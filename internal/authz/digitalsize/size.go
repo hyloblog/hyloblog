@@ -1,4 +1,4 @@
-package size
+package digitalsize
 
 import "fmt"
 
