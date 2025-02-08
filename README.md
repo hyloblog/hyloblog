@@ -1,6 +1,6 @@
 # Hyloblog
 
-[Platform](https://hyloblog.com) | [Blog](https://blog.hyloblog.com) |  [Discord](https://discord.com/invite/E665nuukYn)
+[Platform](https://hyloblog.com) | [Blog](https://blog.hyloblog.com) | [Discord](https://discord.com/invite/E665nuukYn)
 
 <!-- basic description -->
 Hyloblog is a static site generator. The name derives from ὕλη, the Greek word
@@ -30,7 +30,10 @@ building that LaTeX accomplishes in typesetting.
 
 ## Building
 
-Some of the Make targets require sudo on Ubuntu, which is supplied in the
+Copy the files in [configs](https://github.com/hyloblog/hyloblog/tree/chore/readme-update/configs)
+into the root directory and modify them as appropriate.
+
+Some of the targets require sudo on Ubuntu, which is supplied in the
 following way:
 
 ```bash
@@ -46,8 +49,7 @@ make up SUDO=sudo BUILDARGS=--static
 ## License and trademark
 
 This repository contains the Hyloblog software, covered under the 
-[Apache 2.0 License](LICENSE),
-except where noted.
+[Apache 2.0 License](LICENSE), except where noted.
 
 You are free to make your own distribution of the software, but you cannot use
 any of the Hyloblog trademarks, as explained in
