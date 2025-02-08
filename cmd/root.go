@@ -6,15 +6,17 @@ import (
 	"log"
 	"math/rand"
 	"os"
+	"strings"
 	"time"
 
-	"github.com/spf13/cobra"
 	server "github.com/hyloblog/hyloblog/internal/app"
+	"github.com/hyloblog/hyloblog/internal/assert"
 	"github.com/hyloblog/hyloblog/internal/config"
 	"github.com/hyloblog/hyloblog/internal/dns"
 	"github.com/hyloblog/hyloblog/internal/email/emailqueue"
 	"github.com/hyloblog/hyloblog/internal/httpclient"
 	"github.com/hyloblog/hyloblog/internal/model"
+	"github.com/spf13/cobra"
 )
 
 const clientTimeout = 30 * time.Second
@@ -30,7 +32,10 @@ var rootCmd = &cobra.Command{
 		}
 		c := httpclient.NewHttpClient(clientTimeout)
 		store := model.NewStore(db)
-		if err := reserveSubdomains(store); err != nil {
+		if err := reserveSubdomains(
+			getReservedSubdomains(),
+			store,
+		); err != nil {
 			return fmt.Errorf("reserve subdomains: %w", err)
 		}
 		go func() {
@@ -42,11 +47,33 @@ var rootCmd = &cobra.Command{
 	},
 }
 
-func reserveSubdomains(s *model.Store) error {
+func getReservedSubdomains() []string {
+	var domains []string
+	for _, sub := range config.Config.ReservedSubdomains {
+		domains = append(domains, sub)
+	}
+	for _, rule := range config.Config.RedirectRules {
+		parts := strings.Split(
+			rule.From,
+			fmt.Sprintf(".%s", config.Config.Hyloblog.RootDomain),
+		)
+		switch len(parts) {
+		case 1: /* not a subdomain */
+			continue
+		case 2: /* subdomain */
+			domains = append(domains, parts[0])
+		default: /* double occurrence of root */
+			assert.Assert(false)
+		}
+	}
+	return domains
+}
+
+func reserveSubdomains(domains []string, s *model.Store) error {
 	if err := s.DeleteReservedSubdomains(context.TODO()); err != nil {
 		return fmt.Errorf("delete reserved subdomains: %w", err)
 	}
-	for _, rawsub := range config.Config.ReservedSubdomains {
+	for _, rawsub := range domains {
 		sub, err := dns.ParseSubdomain(rawsub)
 		if err != nil {
 			return fmt.Errorf("parse subdomain: %w", err)

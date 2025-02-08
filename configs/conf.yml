@@ -16,6 +16,14 @@ hyloblog:
   discord_url: "https://discord.com"
   cdn: "https://cdn.hyloblog"
 
+redirect_rules:
+  - from: "www.hyloblog.com"
+    to: "hyloblog.com"
+
+reserved_subdomains:
+  - "subdomain1"
+  - "subdomain2"
+
 ssg:
   themes:
     lit:
@@ -63,7 +71,3 @@ stripe:
   secret_key: "<StripeSecretKey>"
   webhook_signing_secret: "<StripeWebhookKey>"
   free_plan_price_id: "<StripeFreePlanPriceID>"
-
-reserved_subdomains:
-  - "subdomain1"
-  - "subdomain2"

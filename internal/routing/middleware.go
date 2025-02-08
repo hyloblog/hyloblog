@@ -7,6 +7,7 @@ import (
 	"net/url"
 
 	"github.com/hyloblog/hyloblog/internal/app/handler"
+	"github.com/hyloblog/hyloblog/internal/app/handler/response"
 	"github.com/hyloblog/hyloblog/internal/assert"
 	"github.com/hyloblog/hyloblog/internal/model"
 	"github.com/hyloblog/hyloblog/internal/routing/internal/usersite"
@@ -55,6 +56,14 @@ func (s *RoutingService) tryRoute(
 	if err != nil {
 		if errors.Is(err, usersite.ErrIsService) {
 			hyloblog.ServeHTTP(w, r)
+			return nil
+		}
+		var redirectErr usersite.RedirectRule
+		if errors.As(err, &redirectErr) {
+			response.NewRedirect(
+				redirectErr.To(),
+				http.StatusSeeOther,
+			).Respond(w, r)
 			return nil
 		}
 		return fmt.Errorf("get site: %w", err)
