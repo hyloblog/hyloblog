@@ -3,8 +3,8 @@
 [Platform](https://hyloblog.com) | [Blog](https://blog.hyloblog.com) | [Discord](https://discord.com/invite/E665nuukYn)
 
 <!-- basic description -->
-Hyloblog is a static site generator. The name derives from ὕλη, the Greek word
-for _matter_.
+Hyloblog is a blogging platform backed by a [static site generator](https://github.com/hyloblog/hyloblog-ssg). The name derives from ὕλη,
+the Greek word for _matter_.
 
 <!-- how it works -->
 Hyloblog generates blog sites (like [this one][blog]) from Markdown files in
