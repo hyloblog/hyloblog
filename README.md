@@ -1,5 +1,10 @@
 # Hyloblog
 
+[![Hosted Platform]()](https://hyloblog.com)
+[![Discord Server](https://img.shields.io/badge/discord-gray?style=for-the-badge&logo=discord&logoColor=white)](https://discord.com/invite/E665nuukYn)
+
+This is a repository containing the hyloblog software.
+
 ## Building
 
 Some of the Make targets require sudo on Ubuntu, which is supplied in the
