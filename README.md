@@ -2,10 +2,6 @@
 
 [Platform](https://hyloblog.com) | [Blog](https://blog.hyloblog.com) |  [Discord](https://discord.com/invite/E665nuukYn)
 
-This is a repository containing the Hyloblog software.
-
-## About
-
 <!-- basic description -->
 Hyloblog is a static site generator. The name derives from ὕλη, the Greek word
 for _matter_.
