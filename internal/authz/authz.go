@@ -3,7 +3,6 @@ package authz
 import (
 	"context"
 	"fmt"
-	"strings"
 
 	"github.com/hyloblog/hyloblog/internal/assert"
 	"github.com/hyloblog/hyloblog/internal/authz/internal/option"
@@ -105,9 +104,6 @@ func GetFeatures() []Feature {
 		featureStorage,
 		featureVisitorsPerMonth,
 		featureCustomDomain,
-		featureThemes,
-		featureCodeStyle,
-		featureImages,
 		featureEmailSubscribers,
 		featureAnalytics,
 	}
@@ -120,9 +116,6 @@ const (
 	featureStorage
 	featureVisitorsPerMonth
 	featureCustomDomain
-	featureThemes
-	featureCodeStyle
-	featureImages
 	featureEmailSubscribers
 	featureAnalytics
 )
@@ -137,12 +130,6 @@ func (f feature) Name() string {
 		return "Visitors per month"
 	case featureCustomDomain:
 		return "Custom domain"
-	case featureThemes:
-		return "Themes"
-	case featureCodeStyle:
-		return "Code styles"
-	case featureImages:
-		return "Images"
 	case featureEmailSubscribers:
 		return "Email subscribers"
 	case featureAnalytics:
@@ -163,12 +150,7 @@ func (f feature) Value(rawtier Tier) string {
 		return tier.storageSize.Abbrev(0)
 	case featureVisitorsPerMonth:
 		return fmt.Sprintf("%d", tier.visitorsPerMonth)
-	case featureThemes:
-		return strings.Join(tier.themes, ", ")
-	case featureCodeStyle:
-		return strings.Join(tier.codeStyles, ", ")
 	case featureCustomDomain,
-		featureImages,
 		featureEmailSubscribers,
 		featureAnalytics:
 		return tier.analyticsCustomDomainImagesEmails.String()
