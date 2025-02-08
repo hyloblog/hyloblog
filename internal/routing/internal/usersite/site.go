@@ -26,9 +26,24 @@ var ErrPageNotFound = errors.New("page not found")
 var ErrUnknownSubdomain = errors.New("unknown subdomain")
 var ErrUnknownDomain = errors.New("unknown domain")
 
+type RedirectRule struct{ from, to string }
+
+func newRedirectRule(from, to string) RedirectRule {
+	return RedirectRule{from, to}
+}
+func (r RedirectRule) To() string { return r.to }
+func (r RedirectRule) Error() string {
+	return fmt.Sprintf("redirect{%s->%s}", r.from, r.to)
+}
+
 func GetSite(host string, s *model.Store) (*Site, error) {
 	if host == config.Config.Hyloblog.RootDomain {
 		return nil, ErrIsService
+	}
+	for _, rule := range config.Config.RedirectRules {
+		if host == rule.From {
+			return nil, newRedirectRule(rule.From, rule.To)
+		}
 	}
 	blog, err := getBlog(host, s)
 	if err != nil {

@@ -26,6 +26,7 @@ type Configuration struct {
 	Email              EmailParams    `mapstructure:"email"`
 	Stripe             StripeParams   `mapstructure:"stripe"`
 	Mixpanel           MixpanelParams `mapstructure:"mixpanel"`
+	RedirectRules      []RedirectRule `mapstructure:"redirect_rules"`
 	ReservedSubdomains []string       `mapstructure:"reserved_subdomains"`
 }
 
@@ -96,6 +97,11 @@ type StripeParams struct {
 
 type MixpanelParams struct {
 	Token string `mapstructure:"token"`
+}
+
+type RedirectRule struct {
+	From string `mapstructure:"from"`
+	To   string `mapstructure:"to"`
 }
 
 func (params DbParams) Connect() (*sql.DB, error) {
