@@ -10,8 +10,8 @@ RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o \
     && rm -rf awscliv2.zip
 RUN aws --version
 
-COPY scripts/backup.sh /usr/local/bin/backup.sh
+COPY backup.sh /usr/local/bin/backup.sh
 RUN chmod +x /usr/local/bin/backup.sh
-COPY scripts/backup-cron /etc/cron.d/backup-cron
+COPY backup-cron /etc/cron.d/backup-cron
 RUN chmod 644 /etc/cron.d/backup-cron && crontab /etc/cron.d/backup-cron
 CMD ["cron", "-f"]

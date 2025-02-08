@@ -12,3 +12,5 @@ letsencrypt/
 *.swp
 *.swo
 *.pem
+backup.sh
+backup-cron

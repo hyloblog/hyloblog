@@ -31,6 +31,6 @@ pg_dump > $TEMPDIR/$DUMP_FILE
 
 tar cfz $TEMPDIR/$ZIP_FILE -C $TEMPDIR $DUMP_FILE
 
-aws s3 cp $TEMPDIR/$ZIP_FILE $S3_PATH/
+/usr/local/bin/aws s3 cp $TEMPDIR/$ZIP_FILE $S3_PATH/
 
 rm -rf $TEMPDIR
